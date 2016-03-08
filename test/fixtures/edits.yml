@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: songs
+# Table name: edits
 #
-#  id             :integer          not null, primary key
-#  title          :string           not null
-#  artist         :string
-#  movie_id       :integer
-#  english_lyrics :text
-#  hindi_lyrics   :text
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id            :integer          not null, primary key
+#  hindi_edits   :text
+#  english_edits :text
+#  user_id       :integer
+#  song_id       :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

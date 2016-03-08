@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304074724) do
+ActiveRecord::Schema.define(version: 20160305052638) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "song_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "edits", force: :cascade do |t|
+    t.text     "hindi_edits"
+    t.text     "english_edits"
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.integer  "year"
+    t.string   "director"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "song_tags", force: :cascade do |t|
+    t.integer  "song_id",    null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "songs", force: :cascade do |t|
     t.string   "title",          null: false
@@ -21,6 +53,19 @@ ActiveRecord::Schema.define(version: 20160304074724) do
     t.text     "hindi_lyrics"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
